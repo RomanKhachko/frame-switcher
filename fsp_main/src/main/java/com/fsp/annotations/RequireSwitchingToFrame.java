@@ -7,7 +7,7 @@ import java.lang.annotation.*;
 /**
  * Created by Roman Khachko on 01.09.2014.
  * Annotate method if it requires switching to frame
- * <p/>
+ * <p>
  * Available values of locatorType:
  * - id
  * - name
@@ -22,22 +22,22 @@ import java.lang.annotation.*;
 @Documented
 public @interface RequireSwitchingToFrame {
     /**
-     * index of iFrame
+     * @return index of iFrame
      */
     int index() default 0;
 
     /**
-     * type of the searching (e.g. css, xpath, id, etc.)
+     * @return type of the searching (e.g. css, xpath, id, etc.)
      */
     LocatorType locatorType() default LocatorType.NONE;
 
     /**
-     * value of locator
+     * @return value of locator
      */
     String locatorValue() default "";
 
     /**
-     * name of id values of iFrame
+     * @return name of id values of iFrame
      */
     String frameNameOrId() default "";
 
