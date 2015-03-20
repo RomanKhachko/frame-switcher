@@ -16,13 +16,23 @@ import java.util.List;
  * Created by Roman Khachko on 01.09.2014.
  */
 public class FrameSwitcher {
-    protected WebDriver driver;
+    private WebDriver driver;
 
-    protected FrameSwitcher(WebDriver driver) {
+    private Object callerObject;
+
+    public FrameSwitcher(WebDriver driver) {
         this.driver = driver;
     }
 
-    protected Object invokeWithSwitchingToFrame(Object... parameters) {
+    /**
+     * invoking a proper method with switching to a frame
+     *
+     * @param callerObject just send 'this' from your code, or 'null' if you invoke it from static method
+     * @param parameters
+     * @return
+     */
+    public Object invokeWithSwitchingToFrame(Object callerObject, Object... parameters) {
+        this.callerObject = callerObject;
         // returns stackTraceElement of caller method:
         StackTraceElement callerMethodInfo = Thread.currentThread().getStackTrace()[2];
 
@@ -114,7 +124,7 @@ public class FrameSwitcher {
         Object returnedValue;
         callingMethod.setAccessible(true);
         try {
-            returnedValue = callingMethod.invoke(this, parameters);
+            returnedValue = callingMethod.invoke(callerObject, parameters);
         } catch (ReflectiveOperationException e) {
             throw new RuntimeException(e);
         }

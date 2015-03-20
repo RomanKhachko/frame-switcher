@@ -13,7 +13,7 @@ import org.openqa.selenium.support.FindBy;
  * this class describes page available here:
  * http://sitemaker.umich.edu/iframe.example/the__iframe__lives_here
  */
-public class IframeLivesHerePage extends FrameSwitcher {
+public class IframeLivesHerePage {
 
     @FindBy(id = "quick-links")
     private WebElement quickLinksButton;
@@ -21,13 +21,15 @@ public class IframeLivesHerePage extends FrameSwitcher {
     @FindBy(id = "second")
     private WebElement navigationBar;
 
+    private FrameSwitcher frameSwitcher;
+
     public IframeLivesHerePage(WebDriver driver) {
-        super(driver);
+        frameSwitcher = new FrameSwitcher(driver);
     }
 
     @RequireSwitchingToFrame
     public String getQuickLinksButtonTextIframe() {
-        return (String) invokeWithSwitchingToFrame();
+        return (String) frameSwitcher.invokeWithSwitchingToFrame(this);
     }
 
     public String getQuickLinksButtonText() {
@@ -36,7 +38,7 @@ public class IframeLivesHerePage extends FrameSwitcher {
 
     @RequireSwitchingToFrame(locatorType = LocatorType.CSS, locatorValue = "[src*='umich.edu']")
     public String getNavigationBarText() {
-        return (String) invokeWithSwitchingToFrame();
+        return (String) frameSwitcher.invokeWithSwitchingToFrame(this);
     }
 
     private String getNavigationBarTextImpl() {
