@@ -7,6 +7,42 @@
     <groupId>Frame-Switcher-Project</groupId>
     <artifactId>FSP-main</artifactId>
     <version>1.1.0</version>
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>Library for supporting automatically
+        frame switching inside pages
+    </description>
+    <url>http://github.com/RomanKhachko/frame-switcher</url>
+
+    <developers>
+        <developer>
+            <name>Roman Khachko</name>
+            <email>romankhachko@gmail.com</email>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>The MIT License (MIT)</name>
+            <url>http://mit-license.org</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:https://github.com/RomanKhachko/frame-switcher.git</connection>
+        <developerConnection>scm:git:https://github.com/RomanKhachko/frame-switcher.git</developerConnection>
+        <url>https://github.com/RomanKhachko/frame-switcher.git</url>
+    </scm>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
     <dependencies>
         <dependency>
@@ -37,6 +73,20 @@
                         <id>attach-javadocs</id>
                         <goals>
                             <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
                         </goals>
                     </execution>
                 </executions>
