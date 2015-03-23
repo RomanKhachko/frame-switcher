@@ -1,6 +1,6 @@
-package com.fsp.annotations;
+package com.rk.fsp.annotations;
 
-import com.fsp.enums.LocatorType;
+import com.rk.fsp.enums.LocatorType;
 
 import java.lang.annotation.*;
 

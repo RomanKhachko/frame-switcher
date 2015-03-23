@@ -1,4 +1,4 @@
-package com.fsp.enums;
+package com.rk.fsp.enums;
 
 /**
  * Created by Roman Khachko on 01.09.2014.

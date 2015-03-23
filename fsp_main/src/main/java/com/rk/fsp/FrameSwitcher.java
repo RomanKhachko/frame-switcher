@@ -1,8 +1,8 @@
-package com.fsp;
+package com.rk.fsp;
 
-import com.fsp.annotations.RequireSwitchingToFrame;
-import com.fsp.enums.LocatorType;
-import com.fsp.utils.SeleniumUtils;
+import com.rk.fsp.annotations.RequireSwitchingToFrame;
+import com.rk.fsp.enums.LocatorType;
+import com.rk.fsp.utils.SeleniumUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

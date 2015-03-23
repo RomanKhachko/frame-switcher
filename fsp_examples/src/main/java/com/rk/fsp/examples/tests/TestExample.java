@@ -1,6 +1,6 @@
-package com.fsp.examples.tests;
+package com.rk.fsp.examples.tests;
 
-import com.fsp.examples.pages.IframeLivesHerePage;
+import com.rk.fsp.examples.pages.IframeLivesHerePage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

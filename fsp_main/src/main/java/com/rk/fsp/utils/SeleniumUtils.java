@@ -1,4 +1,4 @@
-package com.fsp.utils;
+package com.rk.fsp.utils;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

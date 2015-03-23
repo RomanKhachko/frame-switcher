@@ -1,4 +1,4 @@
-package com.fsp.examples.pages;
+package com.rk.fsp.examples.pages;
 
 import com.fsp.FrameSwitcher;
 import com.fsp.annotations.RequireSwitchingToFrame;
