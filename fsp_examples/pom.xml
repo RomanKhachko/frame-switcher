@@ -10,7 +10,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.rk.fsp</groupId>
+            <groupId>com.github.RomanKhachko.fsp</groupId>
             <artifactId>FSP-main</artifactId>
             <version>1.1.0</version>
         </dependency>
