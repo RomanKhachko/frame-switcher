@@ -28,9 +28,10 @@ public class FrameSwitcher {
      * invoking a proper method with switching to a frame
      *
      * @param callerObject just send 'this' from your code, or 'null' if you invoke it from static method
-     * @param parameters parameters of caller method
+     * @param parameters   parameters of caller method
      * @return returned value of caller method
      */
+    @Deprecated
     public Object invokeWithSwitchingToFrame(Object callerObject, Object... parameters) {
         this.callerObject = callerObject;
         // returns stackTraceElement of caller method:
