@@ -18,14 +18,6 @@ public class SwitchToFrameAspect {
     private void whenMethodIsAnnotatedByFrameSwitcher() {
     }
 
-//    @Pointcut("@annotation(requireSwitchingToFrame)")
-//    private void whenMethodIsAnnotatedByFrameSwitcher(RequireSwitchingToFrame requireSwitchingToFrame) {
-//        System.out.println("in pointcut");
-//    }
-
-//    @Pointcut("within(com.rk.fsp.Verifier.*)")
-//    private void whenMethodIsAnnotatedByFrameSwitcher() {}
-
     @Before("whenMethodIsAnnotatedByFrameSwitcher()")
     public void switchFrameBefore(JoinPoint joinPoint /*RequireSwitchingToFrame annotation*/) {
 //        System.out.println("Locator type: " + annotation.locatorType());
