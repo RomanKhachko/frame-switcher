@@ -14,6 +14,6 @@ public class VerEntity {
 
     @RequireSwitchingToFrame
     public void bar(){
-        System.out.println("in a fucking bAR");
+        System.out.println("in a bAR");
     }
 }
