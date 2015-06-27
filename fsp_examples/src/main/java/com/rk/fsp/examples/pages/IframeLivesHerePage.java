@@ -1,8 +1,8 @@
 package com.rk.fsp.examples.pages;
 
-import com.fsp.FrameSwitcher;
-import com.fsp.annotations.RequireSwitchingToFrame;
-import com.fsp.enums.LocatorType;
+import com.rk.fsp.FrameSwitcher;
+import com.rk.fsp.annotations.RequireSwitchingToFrame;
+import com.rk.fsp.enums.LocatorType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

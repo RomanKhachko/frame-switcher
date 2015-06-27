@@ -1,6 +1,5 @@
-import com.rk.fsp.VerEntity;
-import com.rk.fsp.Verifier;
-import com.rk.fsp.annotations.RequireSwitchingToFrame;
+package com.rk.fsp;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
