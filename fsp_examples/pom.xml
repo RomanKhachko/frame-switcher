@@ -9,7 +9,7 @@
     <version>1.0.0</version>
 
     <properties>
-        <aspectjweaver.version>1.7.3</aspectjweaver.version>
+        <aspectjweaver.version>1.8.5</aspectjweaver.version>
     </properties>
 
     <dependencies>
@@ -39,8 +39,7 @@
                 <version>2.9</version>
                 <configuration>
                     <argLine>-XX:-UseSplitVerifier</argLine>
-                    <!--<argLine>-javaagent:${user.home}/.m2/repository/org/aspectj/aspectjweaver/${aspectjweaver.version}/aspectjweaver-${aspectjweaver.version}.jar</argLine>-->
-                <argLine>-javaagent:${settings.localRepository}/org/springframework/spring-agent/${spring.version}/spring-agent-${spring.version}.jar</argLine>
+                    <argLine>-javaagent:${user.home}/.m2/repository/org/aspectj/aspectjweaver/${aspectjweaver.version}/aspectjweaver-${aspectjweaver.version}.jar</argLine>
                 </configuration>
             </plugin>
         </plugins>

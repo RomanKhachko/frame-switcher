@@ -6,9 +6,6 @@ import com.rk.fsp.enums.LocatorType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by Roman Khachko on 27.02.2015.
@@ -16,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
  * this class describes page available here:
  * http://sitemaker.umich.edu/iframe.example/the__iframe__lives_here
  */
-@Configurable
 public class IframeLivesHerePage {
 
     @FindBy(id = "quick-links")
