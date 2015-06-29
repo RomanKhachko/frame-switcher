@@ -1,12 +1,10 @@
 package com.rk.fsp.aspects;
 
-import com.rk.fsp.annotations.RequireSwitchingToFrame;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.beans.factory.annotation.Configurable;
 
 /**
  * Created by roman on 5/30/15.
