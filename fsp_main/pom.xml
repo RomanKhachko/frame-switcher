@@ -139,14 +139,6 @@
                     <target>${java.version}</target>
 
                     <complianceLevel>${java.version}</complianceLevel>
-                    <sources>
-                        <source>
-                            <!--<basedir>src/main/aspect</basedir>-->
-                            <includes>
-                                <include>**/*.aj</include>
-                            </includes>
-                        </source>
-                    </sources>
 
                 </configuration>
 

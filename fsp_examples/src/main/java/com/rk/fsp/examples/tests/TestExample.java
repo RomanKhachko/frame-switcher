@@ -22,7 +22,6 @@ public class TestExample {
     public void setUp() {
         // Firefox driver is provided here, because you don't need to do
         // any extra steps. Just run the code!
-//        FrameSwitcherApp.init();
         driver = new FirefoxDriver();
         driver.get("http://sitemaker.umich.edu/iframe.example/the__iframe__lives_here");
 

@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 /**
  * Created by Roman Khachko on 27.02.2015.
- * <p/>
+ * <p>
  * this class describes page available here:
  * http://sitemaker.umich.edu/iframe.example/the__iframe__lives_here
  */
