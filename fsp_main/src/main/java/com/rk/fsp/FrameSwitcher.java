@@ -26,6 +26,8 @@ public class FrameSwitcher {
 
     /**
      * invoking a proper method with switching to a frame
+     * method is deprecated. Please use it only unless you have a chance of using
+     * current version of frame switcher
      *
      * @param callerObject just send 'this' from your code, or 'null' if you invoke it from static method
      * @param parameters   parameters of caller method
@@ -43,7 +45,7 @@ public class FrameSwitcher {
 
         Class annotationClass = RequireSwitchingToFrame.class;
         if (callerMethod.isAnnotationPresent(annotationClass)) {
-            switchToFrameAccordingToAnnotationParams(callerMethod, annotationClass);
+            switchToFrameAccordingToAnnotationParams(callerMethod);
         }
 
         Object returnedValue = invokeCallingMethod(callerMethod, parameters);
@@ -60,9 +62,9 @@ public class FrameSwitcher {
      * - index
      *
      * @param callerMethod
-     * @param annotationClass
      */
-    private void switchToFrameAccordingToAnnotationParams(Method callerMethod, Class annotationClass) {
+    public void switchToFrameAccordingToAnnotationParams(Method callerMethod) {
+        Class annotationClass = RequireSwitchingToFrame.class;
         RequireSwitchingToFrame annotation = (RequireSwitchingToFrame) callerMethod.getAnnotation(annotationClass);
 
         int frameIndex = annotation.index();
