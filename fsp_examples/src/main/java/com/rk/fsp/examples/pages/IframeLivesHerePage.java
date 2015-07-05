@@ -1,6 +1,5 @@
 package com.rk.fsp.examples.pages;
 
-import com.rk.fsp.FrameSwitcher;
 import com.rk.fsp.annotations.RequireSwitchingToFrame;
 import com.rk.fsp.enums.LocatorType;
 import com.rk.fsp.interfaces.Driverable;
@@ -24,23 +23,15 @@ public class IframeLivesHerePage implements Driverable {
 
     private WebDriver driver;
 
-//    private FrameSwitcher frameSwitcher;
-
     public IframeLivesHerePage(WebDriver driver) {
-//        frameSwitcher = new FrameSwitcher(driver);
         this.driver = driver;
     }
-
 
 
     public String getQuickLinksButtonText() {
         return quickLinksButton.getText();
     }
 
-//    @RequireSwitchingToFrame(locatorType = LocatorType.CSS, locatorValue = "[src*='umich.edu']")
-//    public String getNavigationBarText() {
-//        return (String) frameSwitcher.invokeWithSwitchingToFrame(this);
-//    }
 
     @RequireSwitchingToFrame(locatorType = LocatorType.CSS, locatorValue = "[src*='umich.edu']")
     public String getNavigationBarText() {

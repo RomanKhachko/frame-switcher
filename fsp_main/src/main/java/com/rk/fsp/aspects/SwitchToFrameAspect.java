@@ -10,8 +10,6 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.openqa.selenium.WebDriver;
 
-import java.lang.annotation.Annotation;
-
 /**
  * Created by roman on 5/30/15.
  */
@@ -25,30 +23,16 @@ public class SwitchToFrameAspect {
     }
 
     @Before("whenMethodIsAnnotatedByFrameSwitcher()")
-    public void switchFrameBefore(JoinPoint joinPoint /*RequireSwitchingToFrame annotation*/) {
-//        System.out.println("Locator type: " + annotation.locatorType());
-//        joinPoint.getClass().getAnnotations();
-        System.out.println("join point: " + joinPoint.getSignature());
-        // TODO: switch to frame
+    public void switchFrameBefore(JoinPoint joinPoint) {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
-//        String methodName = signature.getMethod().getName();
-//        Class<?>[] parameterTypes = signature.getMethod().getParameterTypes();
         signature.getMethod().getDeclaredAnnotations();
+
         driver = ((Driverable) joinPoint.getTarget()).getDriver();
-        System.out.println("before switch driver: " + driver);
-        new FrameSwitcher(driver).switchToFrameAccordingToAnnotationParams( signature.getMethod());
-        System.out.println("after switch");
-//        try {
-//            Annotation[][] annotations = joinPoint.getTarget().getClass().getMethod(methodName,parameterTypes).getParameterAnnotations();
-//        } catch (NoSuchMethodException e) {
-//            e.printStackTrace();
-//        }
+        new FrameSwitcher(driver).switchToFrameAccordingToAnnotationParams(signature.getMethod());
     }
 
-    //    @After("com.rk.fsp.aspects.SwitchToFrameAspect.whenMethodIsAnnotatedByFrameSwitcher")
     @After("whenMethodIsAnnotatedByFrameSwitcher()")
     public void switchToDefaultContent() {
-        System.out.println("in after");
         driver.switchTo().defaultContent();
     }
 }
