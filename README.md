@@ -5,7 +5,7 @@ Contains a library for supporting automatically frame switching inside page (or 
 ## usage
 In order to use project you need:
 * add FrameSwitcher dependency in your pom.xml:
-```xml 
+  ```xml 
 <dependency>
     <groupId>com.github.RomanKhachko.fsp</groupId>
     <artifactId>FSP-main</artifactId>
@@ -45,7 +45,7 @@ In order to use project you need:
 </build>
 ```
 * add property java.version (optional), or use constant values in proper plaseces.
-```xml 
+  ```xml 
 <properties>
     <java.version>1.8</java.version>
 </properties>
