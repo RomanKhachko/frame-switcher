@@ -5,13 +5,14 @@ Contains a library for supporting automatically frame switching inside page (or 
 ## usage
 In order to use project you need:
 * add FrameSwitcher dependency in your pom.xml
+  
   ```xml 
   <dependency>
     <groupId>com.github.RomanKhachko.fsp</groupId>
     <artifactId>FSP-main</artifactId>
     <version>2.0.0</version>
   </dependency>
-```
+  ```
 * add following plugin to a build section
      ```xml 
  <build>
@@ -45,11 +46,12 @@ In order to use project you need:
 </build>
 ```
 * add property java.version (optional), or use constant values in proper plaseces
+  
   ```xml 
   <properties>
     <java.version>1.8</java.version>
   </properties>
-```
+  ```
     *Please note, you can specify any version of java here, but not lower than 1.6*
 
 ## version 
