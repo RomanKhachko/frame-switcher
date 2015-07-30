@@ -16,23 +16,24 @@ import org.openqa.selenium.WebDriver;
 @Aspect
 public class SwitchToFrameAspect {
 
-    private WebDriver driver;
+    private static ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
 
     @Pointcut("execution(* *(..)) && @annotation(com.rk.fsp.annotations.RequireSwitchingToFrame)")
     private void whenMethodIsAnnotatedByFrameSwitcher() {
     }
 
     @Before("whenMethodIsAnnotatedByFrameSwitcher()")
-    public void switchFrameBefore(JoinPoint joinPoint) {
+    public void switchFrameBefore(final JoinPoint joinPoint) {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         signature.getMethod().getDeclaredAnnotations();
 
-        driver = ((Driverable) joinPoint.getTarget()).getDriver();
-        new FrameSwitcher(driver).switchToFrameAccordingToAnnotationParams(signature.getMethod());
+        WebDriver localDriver = ((Driverable) joinPoint.getTarget()).getDriver();
+        driver.set(localDriver);
+        new FrameSwitcher(localDriver).switchToFrameAccordingToAnnotationParams(signature.getMethod());
     }
 
     @After("whenMethodIsAnnotatedByFrameSwitcher()")
     public void switchToDefaultContent() {
-        driver.switchTo().defaultContent();
+        driver.get().switchTo().defaultContent();
     }
 }
