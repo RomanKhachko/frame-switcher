@@ -33,7 +33,7 @@ public class SwitchToFrameAspect {
     }
 
     @After("whenMethodIsAnnotatedByFrameSwitcher()")
-    public void switchToDefaultContent() {
+    public void switchToDefaultContent(final JoinPoint joinPoint) {
         driver.get().switchTo().defaultContent();
     }
 }
