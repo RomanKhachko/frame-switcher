@@ -10,7 +10,7 @@ In order to use project you need:
   <dependency>
     <groupId>com.github.RomanKhachko.fsp</groupId>
     <artifactId>FSP-main</artifactId>
-    <version>2.0.1</version>
+    <version>2.0.2</version>
   </dependency>
   ```
 * add following plugin to a build section
@@ -55,7 +55,7 @@ In order to use project you need:
     *Please note, you can specify any version of java here, but not lower than 1.6*
 
 ## version 
-2.0.1
+2.0.2
 ## examples 
 Please, take a look at a [sample project](/fsp_examples) with examples of usage.
 ## contact
