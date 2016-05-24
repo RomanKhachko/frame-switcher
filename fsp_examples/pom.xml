@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>FSP-Examples</artifactId>
-    <version>2.1.0</version>
+    <version>2.1.1</version>
     <groupId>com.github.RomanKhachko.fsp</groupId>
 
     <properties>
@@ -16,7 +16,7 @@
         <dependency>
             <groupId>com.github.RomanKhachko.fsp</groupId>
             <artifactId>FSP-main</artifactId>
-            <version>2.0.2</version>
+            <version>2.0.3</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

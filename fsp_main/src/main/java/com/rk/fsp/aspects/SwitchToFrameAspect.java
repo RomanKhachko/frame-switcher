@@ -1,6 +1,7 @@
 package com.rk.fsp.aspects;
 
 import com.rk.fsp.FrameSwitcher;
+import com.rk.fsp.exceptions.DriverableNotImplementedException;
 import com.rk.fsp.interfaces.Driverable;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
@@ -16,7 +17,8 @@ import org.openqa.selenium.WebDriver;
 @Aspect
 public class SwitchToFrameAspect {
 
-    private static ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
+    private static final ThreadLocal<RuntimeException> lastThrownException = new ThreadLocal<RuntimeException>();
+    private static final ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
 
     @Pointcut("execution(* *(..)) && @annotation(com.rk.fsp.annotations.RequireSwitchingToFrame)")
     private void whenMethodIsAnnotatedByFrameSwitcher() {
@@ -27,13 +29,35 @@ public class SwitchToFrameAspect {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         signature.getMethod().getDeclaredAnnotations();
 
+        checkTargetImplementsDriverable(joinPoint);
+
         WebDriver localDriver = ((Driverable) joinPoint.getTarget()).getDriver();
         driver.set(localDriver);
-        new FrameSwitcher(localDriver).switchToFrameAccordingToAnnotationParams(signature.getMethod());
+        createFrameSwitcher(localDriver).switchToFrameAccordingToAnnotationParams(signature.getMethod());
     }
 
     @After("whenMethodIsAnnotatedByFrameSwitcher()")
     public void switchToDefaultContent(final JoinPoint joinPoint) {
-        driver.get().switchTo().defaultContent();
+        RuntimeException exception = lastThrownException.get();
+        if (exception != null) {
+            throw exception;
+        }
+        getWebDriver().switchTo().defaultContent();
+    }
+
+    FrameSwitcher createFrameSwitcher(WebDriver driver) {
+        return new FrameSwitcher(driver);
+    }
+
+    WebDriver getWebDriver() {
+        return driver.get();
+    }
+
+    private void checkTargetImplementsDriverable(JoinPoint joinPoint) {
+        if (!(joinPoint.getTarget() instanceof Driverable)) {
+            RuntimeException exception = new DriverableNotImplementedException();
+            lastThrownException.set(exception);
+            throw exception;
+        }
     }
 }

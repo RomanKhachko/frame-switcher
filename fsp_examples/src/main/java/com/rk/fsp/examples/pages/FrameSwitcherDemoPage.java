@@ -21,8 +21,6 @@ public class FrameSwitcherDemoPage implements Driverable {
     @FindBy(id = "main-expl")
     private WebElement frameNote;
 
-    private String alertText;
-
     private WebDriver driver;
 
     public FrameSwitcherDemoPage(WebDriver driver) {
